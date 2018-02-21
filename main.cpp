@@ -19,14 +19,14 @@ static void key_callback(GLFWwindow* window, int key, int scancode,
 
     // pause application when user presses SPACEBAR and keeps
     // it pressed
-    if (key == GLFW_KEY_SPACE && action == GLFW_PRESS) {
+    /*if (key == GLFW_KEY_SPACE && action == GLFW_PRESS) {
         pause = true;
-    }
+    }*/
 
     // continue running the application when the user releases
     // the SPACEBAR
     if (key == GLFW_KEY_SPACE && action == GLFW_RELEASE) {
-        pause = false;
+        pause = !pause;
     }
 
     // rotate about Z axis if user presses the RIGHT arrow key 
@@ -183,12 +183,12 @@ int main(int argc, char *argv[])
             // adjust scale (zoom-in and zoom-out)
             scale += delta;
             if ( (scale > 10.0*scale_0) || (scale < 0.1*scale_0) ) delta = -delta;
+        }
 
-            // changes viewing angle
+        // changes viewing angle
             rotate_x += drot_x;
             rotate_y += drot_y;
             rotate_z += drot_z;
-        }
 
         // swap front and back buffers
         glfwSwapBuffers(window);

@@ -2,7 +2,7 @@
 CC = g++ 
 
 # optional compile time flags (-O2, -O3 etc)
-CFLAGS = -O3
+CFLAGS = -O3 -I/usr/include/libdrm -lglfw -lGLU -lGL
 
 EXE = showSTL.x
 
@@ -16,7 +16,7 @@ $(EXE):	main.o \
 	readASCII.o \
 	drawGeometry.o \
 	createVertexArray.o
-	$(CC) main.o getGeometryInput.o readBINARY.o readASCII.o drawGeometry.o createVertexArray.o -o $(EXE) -framework OpenGL -framework Cocoa -framework IOKit -L /usr/local/lib -lglfw
+	$(CC) main.o getGeometryInput.o readBINARY.o readASCII.o drawGeometry.o createVertexArray.o -o $(EXE) -I/usr/include/libdrm -lglfw -lGLU -lGL
 
 # compile dependencies
 
